@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CodeLens</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <span>⌘</span> CodeLens
+    </div>
+
+    <div class="side-title">
+        CODE ANALYZER
+    </div>
+
+    <div class="nav-item active" id="dashboardNav">
+    <span>▦</span>
+    Dashboard
+</div>
+
+<div class="nav-item" id="analysisNav">
+    <span>⌘</span>
+    Code Analysis
+</div>
+
+<div class="nav-item" id="reportsNav">
+    <span>▤</span>
+    Reports
+</div>
+
+<div class="nav-item" id="settingsNav">
+    <span>⚙</span>
+    Settings
+</div>
+
+</aside>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main-content" id="dashboardSection">
+
+
+    <!-- HEADER -->
+
+    <header class="top-header">
+
+        <div>
+            <h1>Code Analysis</h1>
+
+            <p>
+                Understand your Python code structure,
+                complexity and quality.
+            </p>
+        </div>
+
+        <button id="themeButton"
+                class="theme-button">
+            ☾
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         CODE EDITOR
+    ========================= -->
+
+   <section class="editor-card" id="codeAnalysisSection">
+        <div class="editor-header">
+
+            <div>
+
+                <h2>Analyze Python Code</h2>
+
+                <p>
+                    Paste your code below or upload a
+                    Python file.
+                </p>
+
+            </div>
+
+            <div class="editor-actions">
+
+                <input type="file"
+                       id="fileInput"
+                       accept=".py"
+                       hidden>
+
+                <button id="chooseFileButton"
+                        class="outline-button">
+
+                    Upload File
+
+                </button>
+
+                <button id="clearButton"
+                        class="outline-button">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <textarea
+            id="codeInput"
+            class="code-editor"
+            placeholder="Paste your Python code here..."></textarea>
+
+
+        <div id="fileName"
+             class="file-name">
+
+            No file selected
+
+        </div>
+
+
+        <div class="analyze-row">
+
+            <button id="analyzeButton"
+                    class="analyze-button">
+
+                ▶ Analyze Code
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BASIC ANALYSIS
+    ========================= -->
+
+   <div class="section-heading" id="reportsSection">
+
+        <div>
+            <h2>Analysis Overview</h2>
+
+            <p>
+                Basic statistics from your source code.
+            </p>
+        </div>
+
+    </div>
+
+
+    <section class="metrics-grid">
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Lines
+            </div>
+
+            <div class="metric-value"
+                 id="lines">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Functions
+            </div>
+
+            <div class="metric-value"
+                 id="functions">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Variables
+            </div>
+
+            <div class="metric-value"
+                 id="variables">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Loops
+            </div>
+
+            <div class="metric-value"
+                 id="loops">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Comments
+            </div>
+
+            <div class="metric-value"
+                 id="comments">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Classes
+            </div>
+
+            <div class="metric-value"
+                 id="classes">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Complexity
+            </div>
+
+            <div class="metric-value"
+                 id="complexity">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <div class="metric-label">
+                Max Nesting
+            </div>
+
+            <div class="metric-value"
+                 id="nesting">
+                —
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CODE STRUCTURE
+    ========================= -->
+
+    <section class="analysis-grid">
+
+
+        <div class="analysis-card">
+
+            <div class="analysis-card-header">
+
+                <div>
+
+                    <h2>Code Structure</h2>
+
+                    <p>
+                        Functions and classes found in
+                        your program.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="structure"
+                 class="analysis-content">
+
+                Analyze your code to see its structure.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="analysis-card">
+
+            <div class="analysis-card-header">
+
+                <div>
+
+                    <h2>Function Details</h2>
+
+                    <p>
+                        Function size and location.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="functionDetails"
+                 class="analysis-content">
+
+                Analyze your code to see function details.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DETAILED STRUCTURE
+    ========================= -->
+
+    <section class="analysis-card full-card">
+
+        <div class="analysis-card-header">
+
+            <div>
+
+                <h2>Program Structure</h2>
+
+                <p>
+                    Detailed breakdown of Python
+                    statements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="structure-metrics">
+
+
+            <div class="small-metric">
+
+                <span>Imports</span>
+
+                <strong id="imports">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>If</span>
+
+                <strong id="ifStatements">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>Elif</span>
+
+                <strong id="elifStatements">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>Else</span>
+
+                <strong id="elseStatements">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>For</span>
+
+                <strong id="forLoops">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>While</span>
+
+                <strong id="whileLoops">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>Nested Loops</span>
+
+                <strong id="nestedLoops">—</strong>
+
+            </div>
+
+
+            <div class="small-metric">
+
+                <span>Try / Except</span>
+
+                <strong id="tryExcept">—</strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COMPLEXITY
+    ========================= -->
+
+    <section class="analysis-grid">
+
+
+        <div class="analysis-card">
+
+            <div class="analysis-card-header">
+
+                <div>
+
+                    <h2>Complexity Analysis</h2>
+
+                    <p>
+                        Basic cyclomatic-style complexity
+                        estimation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="complexity-display">
+
+                <div>
+
+                    <span>Complexity</span>
+
+                    <strong id="complexityLarge">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Max Nesting</span>
+
+                    <strong id="nestingLarge">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div id="complexityExplanation"
+                 class="explanation">
+
+                Analyze your code to get a complexity
+                explanation.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- UNUSED VARIABLES -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-card-header">
+
+                <div>
+
+                    <h2>Unused Variables</h2>
+
+                    <p>
+                        Variables that may not be used.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="unusedVariables"
+                 class="analysis-content">
+
+                No analysis performed.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CODE QUALITY
+    ========================= -->
+
+    <section class="analysis-card full-card">
+
+        <div class="analysis-card-header">
+
+            <div>
+
+                <h2>Code Quality</h2>
+
+                <p>
+                    Suggestions generated from the
+                    structure of your Python code.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="suggestions"
+             class="suggestions">
+
+            Run CodeLens analysis to get
+            code-quality suggestions.
+
+        </div>
+
+    </section>
+    \<!-- =========================
+     REPORT
+========================= -->
+
+<section class="analysis-card full-card">
+
+    <div class="analysis-card-header">
+
+        <div>
+
+            <h2>Analysis Report</h2>
+
+            <p>
+                Summary of the CodeLens analysis.
+            </p>
+
+        </div>
+
+        <button id="downloadReportButton"
+                class="outline-button">
+
+            ↓ Download Report
+
+        </button>
+
+    </div>
+
+
+    <div class="report-summary">
+
+        <div class="report-status">
+
+            <span class="report-label">
+                Overall Analysis
+            </span>
+
+            <strong id="reportStatus">
+                Not analyzed
+            </strong>
+
+        </div>
+
+
+        <div class="report-item">
+
+            <span>Complexity</span>
+
+            <strong id="reportComplexity">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="report-item">
+
+            <span>Functions</span>
+
+            <strong id="reportFunctions">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="report-item">
+
+            <span>Classes</span>
+
+            <strong id="reportClasses">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="report-item">
+
+            <span>Warnings</span>
+
+            <strong id="reportWarnings">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="report-text"
+         id="reportText">
+
+        Analyze your code to generate
+        the complete report.
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/app.js') }}">
+</script>
+
+</body>
+
+</html>

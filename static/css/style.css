@@ -1,0 +1,897 @@
+/* =========================================
+   CODELENS - PROFESSIONAL DASHBOARD
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background: #101a36;
+    color: white;
+
+    padding: 28px 18px;
+
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+
+    padding: 0 12px 8px;
+}
+
+.logo span {
+    color: #6675ff;
+}
+
+
+.side-title {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+
+    color: #7f8aa8;
+
+    margin: 28px 12px 12px;
+}
+
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    margin: 6px 0;
+
+    border-radius: 9px;
+
+    color: #b9c2da;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.nav-item:hover {
+    background: #1b2748;
+    color: white;
+}
+
+
+.nav-item.active {
+    background: #3949e8;
+    color: white;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+
+    min-height: 100vh;
+
+    padding: 32px 38px 60px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.top-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+
+.top-header h1 {
+    font-size: 28px;
+    margin-bottom: 7px;
+
+    color: #17213b;
+}
+
+
+.top-header p {
+    color: #74809a;
+    font-size: 14px;
+}
+
+
+.theme-button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #e0e4ed;
+
+    border-radius: 10px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    box-shadow: 0 2px 8px rgba(20, 30, 60, 0.05);
+}
+
+
+/* =========================================
+   EDITOR CARD
+========================================= */
+
+.editor-card {
+    background: white;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 5px 20px rgba(31, 45, 75, 0.05);
+}
+
+
+.editor-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.editor-header h2 {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+
+.editor-header p {
+    font-size: 13px;
+
+    color: #7c879d;
+}
+
+
+.editor-actions {
+    display: flex;
+    gap: 9px;
+}
+
+
+.outline-button {
+    background: white;
+
+    border: 1px solid #d9deea;
+
+    color: #35415c;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+.outline-button:hover {
+    background: #f5f7fc;
+}
+
+
+/* =========================================
+   CODE EDITOR
+========================================= */
+
+.code-editor {
+    width: 100%;
+
+    height: 260px;
+
+    resize: vertical;
+
+    border: 1px solid #dce1eb;
+
+    border-radius: 9px;
+
+    background: #111a2f;
+
+    color: #e9edff;
+
+    padding: 18px;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    outline: none;
+}
+
+
+.code-editor:focus {
+    border-color: #5665ef;
+
+    box-shadow:
+        0 0 0 3px rgba(86, 101, 239, 0.1);
+}
+
+
+.file-name {
+    color: #7b869c;
+
+    font-size: 12px;
+
+    margin-top: 9px;
+}
+
+
+.analyze-row {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 17px;
+}
+
+
+.analyze-button {
+    background: #4655e8;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.analyze-button:hover {
+    background: #3544d7;
+}
+
+
+.analyze-button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+    margin: 28px 0 15px;
+}
+
+
+.section-heading h2 {
+    font-size: 19px;
+
+    margin-bottom: 4px;
+}
+
+
+.section-heading p {
+    color: #7c879d;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   METRICS
+========================================= */
+
+.metrics-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+.metric-card {
+    background: white;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    min-height: 105px;
+
+    box-shadow:
+        0 4px 15px rgba(30, 45, 75, 0.04);
+}
+
+
+.metric-label {
+    color: #7b869c;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+
+.metric-value {
+    font-size: 27px;
+
+    font-weight: 700;
+
+    color: #1b2745;
+}
+
+
+/* =========================================
+   ANALYSIS GRID
+========================================= */
+
+.analysis-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+.analysis-card {
+    background: white;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 13px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 4px 15px rgba(30, 45, 75, 0.04);
+}
+
+
+.full-card {
+    margin-bottom: 18px;
+}
+
+
+.analysis-card-header {
+    margin-bottom: 18px;
+}
+
+
+.analysis-card-header h2 {
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+
+.analysis-card-header p {
+    font-size: 12px;
+
+    color: #7b869c;
+}
+
+
+.analysis-content {
+    min-height: 80px;
+
+    color: #667188;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   STRUCTURE ITEMS
+========================================= */
+
+.structure-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    margin-bottom: 8px;
+
+    background: #f7f8fc;
+
+    border-radius: 8px;
+
+    border: 1px solid #edf0f5;
+}
+
+
+.structure-item strong {
+    color: #4655e8;
+}
+
+
+.structure-item span {
+    color: #29344d;
+}
+
+
+.structure-item small {
+    margin-left: auto;
+
+    color: #8992a5;
+}
+
+
+/* =========================================
+   PROGRAM STRUCTURE METRICS
+========================================= */
+
+.structure-metrics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+
+.small-metric {
+    background: #f7f8fc;
+
+    border: 1px solid #e8ebf2;
+
+    border-radius: 9px;
+
+    padding: 15px;
+}
+
+
+.small-metric span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #7c879d;
+
+    margin-bottom: 7px;
+}
+
+
+.small-metric strong {
+    font-size: 20px;
+
+    color: #26324d;
+}
+
+
+/* =========================================
+   COMPLEXITY
+========================================= */
+
+.complexity-display {
+    display: flex;
+
+    gap: 45px;
+
+    margin: 10px 0 20px;
+}
+
+
+.complexity-display span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #7b869c;
+
+    margin-bottom: 5px;
+}
+
+
+.complexity-display strong {
+    font-size: 32px;
+
+    color: #4655e8;
+}
+
+
+.explanation {
+    background: #f5f7ff;
+
+    border-left: 4px solid #4655e8;
+
+    border-radius: 6px;
+
+    padding: 13px 15px;
+
+    color: #59647b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   WARNINGS
+========================================= */
+
+.warning {
+    background: #fff6ed;
+
+    border: 1px solid #f3dfc7;
+
+    color: #a85b18;
+
+    padding: 10px 13px;
+
+    border-radius: 7px;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+}
+
+
+.success-message {
+    background: #eefaf3;
+
+    border: 1px solid #d3eddd;
+
+    color: #328052;
+
+    padding: 11px 13px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+}
+
+
+.suggestions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.suggestion {
+    background: #f7f8fc;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 8px;
+
+    padding: 12px 14px;
+
+    color: #566178;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark {
+    background: #0c1224;
+
+    color: #e8ecfa;
+}
+
+
+body.dark .main-content {
+    background: #0c1224;
+}
+
+
+body.dark .top-header h1,
+body.dark .analysis-card h2,
+body.dark .editor-header h2,
+body.dark .section-heading h2 {
+    color: #eef1ff;
+}
+
+
+body.dark .top-header p,
+body.dark .editor-header p,
+body.dark .analysis-card-header p,
+body.dark .section-heading p {
+    color: #9aa5c0;
+}
+
+
+body.dark .editor-card,
+body.dark .metric-card,
+body.dark .analysis-card {
+    background: #141d34;
+
+    border-color: #25304a;
+}
+
+
+body.dark .metric-value,
+body.dark .small-metric strong {
+    color: #eef1ff;
+}
+
+
+body.dark .small-metric,
+body.dark .structure-item,
+body.dark .suggestion {
+    background: #1a243c;
+
+    border-color: #293550;
+}
+
+
+body.dark .structure-item span {
+    color: #dce2f3;
+}
+
+
+body.dark .outline-button,
+body.dark .theme-button {
+    background: #18233b;
+
+    color: #dce2f3;
+
+    border-color: #303c59;
+}
+
+
+body.dark .explanation {
+    background: #192342;
+
+    color: #bdc6dc;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .metrics-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .structure-metrics {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main-content {
+        margin-left: 190px;
+
+        width: calc(100% - 190px);
+
+        padding: 25px 20px;
+    }
+
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .structure-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+/* =========================================
+   REPORT
+========================================= */
+
+.report-summary {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.report-status,
+.report-item {
+    background: #f7f8fc;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 9px;
+
+    padding: 15px;
+}
+
+
+.report-label,
+.report-item span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #7b869c;
+
+    margin-bottom: 7px;
+}
+
+
+.report-status strong,
+.report-item strong {
+    font-size: 18px;
+
+    color: #27334e;
+}
+
+
+.report-text {
+    background: #f8f9fc;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 9px;
+
+    padding: 18px;
+
+    color: #59647a;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+}
+
+
+body.dark .report-status,
+body.dark .report-item,
+body.dark .report-text {
+    background: #1a243c;
+
+    border-color: #293550;
+}
+
+
+body.dark .report-status strong,
+body.dark .report-item strong {
+    color: #eef1ff;
+}
+
+
+body.dark .report-text {
+    color: #bdc6dc;
+}
+
+
+@media (max-width: 900px) {
+
+    .report-summary {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
